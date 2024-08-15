@@ -1,0 +1,2 @@
+class BetaReaderInvite < ApplicationRecord
+end
