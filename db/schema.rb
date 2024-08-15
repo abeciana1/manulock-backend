@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_12_043002) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_15_032541) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -104,6 +104,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_043002) do
     t.index ["user_id"], name: "index_ndas_on_user_id"
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "plan", default: 0, null: false
+    t.integer "documents_remaining", default: 0
+    t.integer "invites_remaining", default: 0
+    t.string "stripe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -130,5 +141,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_043002) do
   add_foreign_key "emails", "users"
   add_foreign_key "ndas", "documents"
   add_foreign_key "ndas", "users"
+  add_foreign_key "subscriptions", "users"
   add_foreign_key "users", "users", column: "invited_by_id"
 end
