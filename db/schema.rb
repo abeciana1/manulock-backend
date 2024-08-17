@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_17_205431) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_17_211503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,9 +27,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_17_205431) do
     t.float "bounding_width"
     t.float "bounding_height"
     t.jsonb "rects", default: []
-    t.bigint "user_id"
+    t.integer "annotation_type"
     t.index ["document_id"], name: "index_annotations_on_document_id"
-    t.index ["user_id"], name: "index_annotations_on_user_id"
   end
 
   create_table "audit_logs", force: :cascade do |t|
