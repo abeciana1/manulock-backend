@@ -25,7 +25,7 @@ class EmailEvent < ApplicationRecord
         tablet: 2,
         smartwatch: 3,
         webmail: 4,
-        other: 5
+        other_device: 5
     }
 
     enum email_client: {
@@ -34,6 +34,6 @@ class EmailEvent < ApplicationRecord
         yahoo: 2,
         apple_mail: 3,
         thunderbird: 4,
-        other: 5
+        other_client: 5
     }
 end

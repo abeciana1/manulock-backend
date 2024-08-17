@@ -11,7 +11,7 @@ class User < ApplicationRecord
     validates :first_name, :last_name, :email, presence: true
     validates :email, uniqueness: true
 
-    enum role {
+    enum role: {
         inviter: 0,
         reviewer: 1
     }
