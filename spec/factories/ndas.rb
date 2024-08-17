@@ -3,7 +3,6 @@ FactoryBot.define do
     association :user
     association :document
     signed_at { Faker::Time.backward(days: 14, period: :evening) }
-    signed { [0, 1].sample } # Assuming 0 is unsigned and 1 is signed
     pdf_url { "https://example.com/nda-#{Faker::Number.number(digits: 5)}.pdf" }
 
     trait :signed do
