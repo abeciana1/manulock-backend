@@ -2,7 +2,7 @@ require 'faker'
 
 FactoryBot.define do
   factory :subscription do
-    user
+    association :user
     stripe_id { Faker::Stripe.valid_card }
     plan { :starter }
     documents_remaining { 5 }
