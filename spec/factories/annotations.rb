@@ -24,5 +24,14 @@ FactoryBot.define do
         }
       ]
     end
+
+    trait :highlight do
+      annotation_type { 0 }
+    end
+
+    trait :comment do
+      annotation_type { 1 }
+    end
+
   end
 end
