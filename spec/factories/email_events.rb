@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :email_event do
     association :email
-    email_client { %i[gmail outlook yahoo other].sample }
     geolocation { "#{Faker::Address.latitude}, #{Faker::Address.longitude}" }
     additional_data { { ip_address: Faker::Internet.ip_v4_address } }
 
