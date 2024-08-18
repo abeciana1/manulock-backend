@@ -6,6 +6,6 @@ RSpec.describe EmailEvent, type: :model do
   end
 
   describe "Validations" do
-    it { should validate_presence_of(:email_event) }
+    it { should validate_presence_of(:event_type) }
   end
 end
