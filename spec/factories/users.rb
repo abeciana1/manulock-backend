@@ -6,8 +6,10 @@ FactoryBot.define do
     last_name { Faker::Name.last_name }
     email { Faker::Internet.unique.email }
     auth_id { Faker::Number.number(digits: 6) }
-
-    association :invited_by, factory: :user, strategy: :create
+    
+    trait :with_inviter do
+      association :invited_by, factory: :user
+    end
 
     trait :reviewer do
       role { 1 }
