@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+    enum role: {
+        inviter: 0,
+        reviewer: 1
+    }
+
     has_one :subscription, dependent: :destroy
     belongs_to :invited_by, class_name: 'User', optional: true
     has_many :invited_users, class_name: 'User', foreign_key: 'invited_by_id'
@@ -8,11 +13,8 @@ class User < ApplicationRecord
     has_many :comments, dependent: :destroy
     has_many :ndas, dependent: :destroy
 
-    validates :first_name, :last_name, :email, presence: true
+    validates :first_name, :last_name, :email, :role, presence: true
     validates :email, uniqueness: true
 
-    enum role: {
-        inviter: 0,
-        reviewer: 1
-    }
+    validates :invited_by_id, presence: true, unless: :inviter?
 end
