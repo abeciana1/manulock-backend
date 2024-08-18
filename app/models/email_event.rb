@@ -1,7 +1,7 @@
 class EmailEvent < ApplicationRecord
     belongs_to :email
 
-    validates :event_type, :occurred_at, presence: true
+    validates :event_type, presence: true
 
     enum event_type: {
         sent: 0,
