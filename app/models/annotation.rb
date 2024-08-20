@@ -8,5 +8,4 @@ class Annotation < ApplicationRecord
     }
 
     validates :page_number, :selected_text, :annotation_type, presence: true
-    validates :annotation_type, numericality: true
 end
