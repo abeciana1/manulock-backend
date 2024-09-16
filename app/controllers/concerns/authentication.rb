@@ -18,7 +18,7 @@ module Authentication
                 user.email = user_login_params[:email]
                 user.role = "inviter"
             end
-            render json: { user: @current_user }, status: :success
+            render json: { user: UserSerializer.new(@current_user) }, status: :success
         else
             render json: { error: 'Auth header not found — unauthorized' }, status: :unauthorized
         end
