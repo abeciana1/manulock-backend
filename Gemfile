@@ -47,7 +47,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
-gem "rack-cors"
+gem "rack-cors", require: 'rack/cors'
 
 # testing
 gem 'vcr'
@@ -82,3 +82,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "active_model_serializers"
