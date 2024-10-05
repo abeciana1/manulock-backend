@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-    attributes :id :first_name, :last_name, :invited_by_id
+    attributes :id, :first_name, :last_name, :invited_by_id
 
     has_one :subscription
     has_many :invited_users
