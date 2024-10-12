@@ -1,3 +1,5 @@
+require 'pry'
+
 class Api::V1::UsersController < Api::BaseController
     protect_from_forgery with: :null_session
 
@@ -7,6 +9,10 @@ class Api::V1::UsersController < Api::BaseController
 
     def create
         render json: { user: UserSerializer.new(@current_user) }, status: :ok
+    end
+
+    def my_documents
+        binding.pry
     end
 
     private
