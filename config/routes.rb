@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users
       resources :documents
-      get 'my-documents', to: 'user#my_documents'
+      get 'my-documents', to: 'users#my_documents'
     end
   end
 end
