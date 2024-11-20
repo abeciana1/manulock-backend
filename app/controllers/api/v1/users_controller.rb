@@ -12,7 +12,9 @@ class Api::V1::UsersController < Api::BaseController
     end
 
     def my_documents
-        binding.pry
+        # @current_user = User.find_by(auth_id: request.headers['Clerk-User-Id'])
+        #  todo add filtration based on user's docs, over invited to review docs
+        render json: { documents: @current_user.documents }, status: :ok
     end
 
     private
