@@ -37,4 +37,8 @@ RSpec.describe Api::V1::UsersController, type: :request do
             end
         end
     end
+
+    describe "GET /api/v1/my-documents" do
+        context "user can retrieve their documents"
+    end
 end
